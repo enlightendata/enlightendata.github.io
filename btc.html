@@ -11,6 +11,26 @@
   <script src="https://www.puck-js.com/puck.js"></script>
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
   
+  <script
+  src="https://code.jquery.com/jquery-3.2.1.min.js"
+  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+  crossorigin="anonymous">
+</script>
+ 
+  $.ajax({
+        async: true,
+        type: "GET",
+        url: "https://www.bitstamp.net/api/ticker/",
+        success: function(result) {
+          data = result.last;
+<!--           document.getElementById("btc").innerHTML = data; -->
+          alert(data);
+          }
+});
+  
+  
+  
+  
   <script type="text/javascript">
     var clipURL   = 'http://www.drodd.com/seinfeld-audio/';
     var clipArray = ['ah_hah.wav','giddy-up.wav','serenity1.wav','outhere.mp3','idea.wav','insane.wav','internet.wav'];
