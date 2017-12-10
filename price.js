@@ -6,7 +6,7 @@ $.ajax({
              url: "https://api.coindesk.com/v1/bpi/currentprice.json",
         success: function(result) {
           btcData = JSON.parse(result);
-          data = btcData.last;
+          data = Math.round(btcData.bpi.USD.rate,0);
           document.getElementById("btc").innerHTML = 'The latest BitCoin price is: $'.concat(data);
                 
           responsiveVoice.speak("The latest Bitcoin price is ", "Russian Female");
