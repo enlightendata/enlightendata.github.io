@@ -2,7 +2,8 @@ $.ajax({
         async: true,
         type: "GET",
 //         url: "https://cors.io/?https://www.bitstamp.net/api/ticker/",
-        url: "https://cors-anywhere.herokuapp.com/https://www.bitstamp.net/api/ticker/",
+//         url: "https://cors-anywhere.herokuapp.com/https://www.bitstamp.net/api/ticker/",
+             url: "https://api.coindesk.com/v1/bpi/currentprice.json",
         success: function(result) {
           btcData = JSON.parse(result);
           data = btcData.last;
