@@ -13,7 +13,7 @@ $.ajax({
                 
           var voicelist = responsiveVoice.getVoices();     
                 
-          responsiveVoice.speak("hashtag pyramid scheme", "US English Male", {volume: 0.5});
+          responsiveVoice.speak("hashtag pyramid scheme", "Latvian Male", {volume: 0.5});
                 
           }
 });
