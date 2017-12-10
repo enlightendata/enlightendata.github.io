@@ -6,11 +6,11 @@ $.ajax({
              url: "https://api.coindesk.com/v1/bpi/currentprice.json",
         success: function(result) {
           btcData = JSON.parse(result);
-          data = Math.round(btcData.bpi.USD.rate,0);
-          document.getElementById("btc").innerHTML = 'The latest BitCoin price is: $'.concat(data);
+          btcPrice = parseFloat(btcData.bpi.USD.rate.replace(",","")).toFixed(2);
+          document.getElementById("btc").innerHTML = 'The latest BitCoin price is: $'.concat(btcPrice);
                 
           responsiveVoice.speak("The latest Bitcoin price is ", "Russian Female");
-          responsiveVoice.speak('$'.concat(data), "US English Female");
+          responsiveVoice.speak('$'.concat(btcPrice), "US English Female");
                
           responsiveVoice.speak("hashtag pyramid scheme", "US English Male", {volume: 0.5});
                 
