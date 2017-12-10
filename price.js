@@ -6,6 +6,9 @@ $.ajax({
           btcData = JSON.parse(result);
           data = btcData.last;
           document.getElementById("btc").innerHTML = '$'.concat(data);
-          responsiveVoice.speak("Bitcoin is now at " + '$'.concat(data), "Romanian Male");
+                
+          var msg = new SpeechSynthesisUtterance('Hello World');
+window.speechSynthesis.speak(msg);
+//           responsiveVoice.speak("Bitcoin is now at " + '$'.concat(data), "Romanian Male");
           }
 });
