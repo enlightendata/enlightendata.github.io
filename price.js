@@ -7,7 +7,7 @@ $.ajax({
           data = btcData.last;
           document.getElementById("btc").innerHTML = 'Latest BitCoin price is: $'.concat(data);
                 
-          responsiveVoice.speak("Bitcoin is now at ", "Romanian Male");
+          responsiveVoice.speak("Bitcoin is now at ", "Bosnian Male");
           responsiveVoice.speak('$'.concat(data), "US English Male");
           }
 });
