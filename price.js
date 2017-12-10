@@ -11,10 +11,9 @@ $.ajax({
           responsiveVoice.speak('$'.concat(data), "US English Female");
                 
                 
-          var voicelist = responsiveVoice.getVoices();      
-            console.log(voicelist);
+          var voicelist = responsiveVoice.getVoices();     
                 
-          responsiveVoice.speak("hashtag pyramid scheme", "US English Male", {volume: 1});
+          responsiveVoice.speak("hashtag pyramid scheme", "US English Male", {volume: 0.5});
                 
           }
 });
