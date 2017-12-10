@@ -5,7 +5,7 @@ $.ajax({
         success: function(result) {
           btcData = JSON.parse(result);
           btcPrice = parseFloat(btcData.bpi.USD.rate.replace(",","")).toFixed(2);
-          document.getElementById("btc").innerHTML = 'The latest BitCoin price is: $'.concat(btcPrice);
+          document.getElementById("btc").innerHTML = 'The latest Bitcoin price is: $'.concat(btcPrice);
                 
           responsiveVoice.speak("The latest Bitcoin price is ".concat(btcPrice), "UK English Female");
                
