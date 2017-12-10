@@ -1,5 +1,22 @@
 <!DOCTYPE html>
   <html>
+    <head>
+      <style>
+      .button {
+          background-color: #4CAF50; /* Green */
+          border: none;
+          color: white;
+          padding: 15px 32px;
+          text-align: center;
+          text-decoration: none;
+          display: inline-block;
+          font-size: 16px;
+          margin: 4px 2px;
+          cursor: pointer;
+      }
+   </head>
+      
+      
   <!-- require jquery -->
   <script
     src="https://code.jquery.com/jquery-3.2.1.min.js"
@@ -9,12 +26,11 @@
   <script src="https://www.puck-js.com/puck.js"></script>
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 
-  
     <body>
       <div id="btc" style="font-size: 16px; text-align:center"></div>
       <br>
       <div style="text-align:center">
-        <button onclick="responsiveVoice.speak($('#btc').innerHTML());" type="button" value="Listen" />
+        <button class="button onclick="responsiveVoice.speak($('#btc').text());" type="button">Listen</button>
       </div>
       
     </body>
