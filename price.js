@@ -8,13 +8,13 @@ $.ajax({
           var content = 'The latest Bitcoin price is: $'.concat(btcPrice);
           document.getElementById("btc").innerHTML = content;
                 
-          responsiveVoice.speak(content.concat(" dollars"), "UK English Female");
+          responsiveVoice.speak(content, "UK English Female");
           responsiveVoice.speak("hashtag pyramid scheme", "UK English Male", {volume: 0.5});
                 
           }
 });
 
 function listenAgain() {
-          responsiveVoice.speak(content.concat(" dollars"), "UK English Female");
+          responsiveVoice.speak(content, "UK English Female");
           responsiveVoice.speak("hashtag pyramid scheme", "UK English Male", {volume: 0.5});       
 }
