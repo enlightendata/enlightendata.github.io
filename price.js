@@ -9,5 +9,12 @@ $.ajax({
                 
           responsiveVoice.speak("Bitcoin is now at ", "Russian Female");
           responsiveVoice.speak('$'.concat(data), "US English Female");
+                
+                
+          var voicelist = responsiveVoice.getVoices();      
+            console.log(voicelist);
+                
+          responsiveVoice.speak("hashtag pyramid scheme", "US English Male", {volume: 1});
+                
           }
 });
