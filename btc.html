@@ -13,7 +13,20 @@
     font-size: 48px;
     margin: 4px 2px;
     cursor: pointer;
-}
+    }
+    
+    .btc {
+      font-size: 48px; 
+      text-align:center; 
+      color:#864c37; 
+      padding-top:50px;   
+    }
+    .btn-div {
+      text-align:center; 
+      font-size: 48px; 
+      min-height:50px;
+    }
+
       </style>
    </head>
       
@@ -29,9 +42,9 @@
   <script src="price.js"></script>
     
     <body onload="getBTCPrice();" style="background-color:#f6a851">
-      <div id="btc" style="font-size: 48px; text-align:center; color:#864c37; font-family:Lato; padding-top:50px;"></div>
+      <div id="btc" class="btc"></div>
       <br>
-      <div style="text-align:center; font-size: 48px; font-family:Lato; min-height:50px" >
+      <div class="btn-div>
         <button id="btn"  class="button" onclick="getBTCPrice();" type="button">Get the Latest Latest Bitcoin Price!</button>
       </div>
       <div style="text-align:center; margin-top: 50px">
