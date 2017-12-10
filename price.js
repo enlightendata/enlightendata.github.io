@@ -5,9 +5,9 @@ $.ajax({
         success: function(result) {
           btcData = JSON.parse(result);
           data = btcData.last;
-          document.getElementById("btc").innerHTML = 'Latest BitCoin price is: $'.concat(data);
+          document.getElementById("btc").innerHTML = 'The latest BitCoin price is: $'.concat(data);
                 
-          responsiveVoice.speak("Bitcoin is now at ", "Russian Female");
+          responsiveVoice.speak("The latest Bitcoin price is ", "Russian Female");
           responsiveVoice.speak('$'.concat(data), "US English Female");
                
           responsiveVoice.speak("hashtag pyramid scheme", "US English Male", {volume: 0.5});
