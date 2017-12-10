@@ -1,131 +1,17 @@
-<html>
-<head>
-  <title>Soundboard Button</title>
-</head>
-<body>
-  <button>Connect to Puck</button>
-  <button>Disconnect From Puck</button>
-  
-  <input onclick='responsiveVoice.speak("Hello World");' type='button' value='🔊 Play' />
-  
+<!DOCTYPE html>
+  <html>
+  <!-- require jquery -->
+  <script
+    src="https://code.jquery.com/jquery-3.2.1.min.js"
+    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+    crossorigin="anonymous">
+  </script>
   <script src="https://www.puck-js.com/puck.js"></script>
   <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+
   
-  <script
-  src="https://code.jquery.com/jquery-3.2.1.min.js"
-  integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-  crossorigin="anonymous">
-</script>
- 
-  <script type="text/javascript">
-  $.ajax({
-        async: true,
-        type: "GET",
-        url: "https://www.bitstamp.net/api/ticker/",
-        success: function(result) {
-          data = result.last;
-<!--           document.getElementById("btc").innerHTML = data; -->
-          alert(data);
-          }
-});
-  </script>
-  
-  
-  
-  <script type="text/javascript">
-    var clipURL   = 'http://www.drodd.com/seinfeld-audio/';
-    var clipArray = ['ah_hah.wav','giddy-up.wav','serenity1.wav','outhere.mp3','idea.wav','insane.wav','internet.wav'];
-
-    // Connects to Puck, pushes code and starts listening for returned data
-    function connect(fn, onLine) {
-      var connection;
-
-      // If a connection already exists, reset it
-      if (connection) {
-        connection.close();
-        connection = undefined;
-      }
-
-      Puck.connect(function(c) {
-        if (!c) {
-          alert("Couldn't connect to Puck.");
-          return;
-        }
-
-        connection = c;
-
-        // Handle the data we get back, and call the 'onLine' callback whenever
-        // we get a line
-        var buffer  = '';
-        var newline = '\r\n';
-
-        connection.on('data', 
-          function(d) {
-            buffer += d;
-            var i   = buffer.indexOf(newline);
-            while (i >= 0) {
-              onLine(buffer.substr(0, i));
-              buffer  = buffer.substr(i + newline.length);
-              i       = buffer.indexOf(newline);
-            }
-          }
-        );
-
-        // Reset the Puck, wait a bit, then push the code
-        connection.write('reset()\n', 
-          function() {
-            setTimeout(function() {
-              // Note: This is a bit of a hack, not recommended practice!
-              var code = fn.toString();
-              var body = code.slice(code.indexOf('{') + 1, code.lastIndexOf('}'));
-              
-              connection.write(body + '\n', 
-                function() {
-                  console.log('Ready...');
-                }
-              );
-            }, 1500);
-          }
-        )
-      })
-    }
-
-    // The code to be pushed to the Puck
-    function puckCode() {
-      // Send 'playSoundClip' over Bluetooth whenever button is pressed
-      setWatch(function() {
-        Bluetooth.println('playSoundClip');
-      }, BTN, {edge: 'rising', debounce: 20, repeat: true});
-    }
-
-    // Called when a line of data is returned from the Puck
-    function soundPlayer(data) {
-      console.log(data);
-      if (data == 'playSoundClip') {
-        var clipNumber  = Math.floor(Math.random() * clipArray.length);
-        var audio       = new Audio(clipURL + clipArray[clipNumber]);
-        audio.play();
-      }
-    }
-
-    // Attach click handlers to buttons
-    var btnConnect    = document.getElementsByTagName('button')[0];
-    var btnDisconnect = document.getElementsByTagName('button')[1];
-
-    btnConnect.addEventListener('click', 
-      function() { 
-        connect(puckCode, soundPlayer); 
-        console.log("connected to Puck"); 
-      }
-    );
-
-    btnDisconnect.addEventListener('click', 
-      function() { 
-        Puck.close; 
-        console.log("disconnected from Puck"); 
-      }
-    );
-
-  </script>
-</body>
+    <body>
+      <div id="btc"></div>
+    </body>
+      <script src="js/price.js"></script>
 </html>
