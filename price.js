@@ -8,6 +8,6 @@ $.ajax({
           document.getElementById("btc").innerHTML = 'Latest BitCoin price is: $'.concat(data);
                 
           responsiveVoice.speak("Bitcoin is now at ", "Serbian Male");
-          responsiveVoice.speak('$'.concat(data), "US English Male");
+//           responsiveVoice.speak('$'.concat(data), "US English Male");
           }
 });
