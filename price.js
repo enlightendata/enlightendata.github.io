@@ -6,5 +6,6 @@ $.ajax({
           btcData = JSON.parse(result);
           data = btcData.last;
           document.getElementById("btc").innerHTML = '$'.concat(data);
+          responsiveVoice.speak("Bitcoin is now at " + '$'.concat(data), "Romanian Male");
           }
 });
