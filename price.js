@@ -15,5 +15,6 @@ function getBTCPrice() {
                 
                         var btn = document.getElementById("btn");
                         btn.style.display === "block";
+                }
         });
 }
