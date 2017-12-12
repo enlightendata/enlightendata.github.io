@@ -1,5 +1,11 @@
+var currentPrice = null;
+var previousPrice = null;
+var currentTime = null;
 
 function getBTCPrice() {
+        //get no more than once every 30 seconds
+        
+        
         $.ajax({
                 async: true,
                 type: "GET",
@@ -7,6 +13,15 @@ function getBTCPrice() {
                 success: function(result) {
                         var btcData = JSON.parse(result);
                         var btcPrice = parseFloat(btcData.bpi.USD.rate.replace(",","")).toFixed(0);
+                        currentPrice = btcPrice;
+                        previousPrice = btcPrice;
+                        
+                        if (currentPrice > previousPrice) {
+                                //show up arrow
+                        } else {
+                                //show down arrow
+                        }
+                        
                         var content = 'The latest Bitcoin price is: $'.concat(btcPrice);
                         document.getElementById("btc").innerHTML = content;
 
