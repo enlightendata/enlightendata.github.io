@@ -52,7 +52,21 @@
       </div>
       <div style="text-align:center; margin-top: 50px">
         <img src="btc-bg.png">
-        </div
+      </div>
       
+      <a href="https://digitaltipjar.com/bitcoinbonanza?_external=true" class="dtj-tip-button" data-username="bitcoinbonanza">
+        Digital Tip Jar
+      </a>
+      <script>
+        var a = document.querySelectorAll('.dtj-tip-button')[0];
+        var i = document.createElement('IFRAME');
+        i.setAttribute('src', "https://digitaltipjar.com/bitcoinbonanza/widgets/tip?_external=true");
+        i.setAttribute('frameborder','0');
+        i.style.height = 70 +'px';
+        i.style.width = 120 +'px';
+        a.parentNode.insertBefore(i,a);
+        a.parentNode.removeChild(a);
+      </script>
+           
     </body>
 </html>
